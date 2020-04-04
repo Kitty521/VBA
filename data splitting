@@ -5,6 +5,16 @@ Dim sht As Worksheet
 Dim k, i, j As Integer
 Dim irow As Integer 
 
+Application.DisplayAlerts = False
+If Sheets.Count > 1 Then
+    For Each sht1 In Sheets
+        If sht.Name <> "data" Then
+            sht1.Delete
+        End If
+    Next
+End If
+Application.DisplayAlerts = False
+
 
 irow = Sheet1.Range("a65536").End(xlUp).Row
 'split
